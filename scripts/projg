@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Project initialization script for gcp-kubernetes"""
+"""Project git management script for gcp-kubernetes
+
+Handles:
+- Project workspace initialization
+- Repository backup and reset (nuke)
+- Multi-repository git operations (commit, push)
+"""
 import argparse
 import asyncio
 import json
@@ -320,7 +326,7 @@ def main():
     # Modified git operation arguments
     parser.add_argument("--commit", action="store_true", help="Create a new commit")
     parser.add_argument("--message", "-m", help="Commit message")
-    parser.add.add_argument("--push", action="store_true", help="Push changes to remote")
+    parser.add_argument("--push", action="store_true", help="Push changes to remote")
     parser.add_argument("--files", nargs="+", help="Specific files to stage")
     parser.add_argument("--branch", help="Branch name for push operation")
     parser.add_argument("--exclude", nargs="+", help="Exclude specific repositories")
