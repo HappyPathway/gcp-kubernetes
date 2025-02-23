@@ -15,7 +15,7 @@ class ProjectInitializer:
     def __init__(self, project_name: str, repo_org: str, repositories: List[Dict]):
         self.project_name = project_name
         self.repo_org = repo_org
-        self.repositories = repositories
+        self.repositories = json.loads(repositories)  # Deserialize the JSON string
         self.base_dir = Path("..").resolve()
         self.semaphore = asyncio.Semaphore(5)  # Limit concurrent git operations
 
@@ -159,7 +159,7 @@ def main():
     config = {
         "project_name": "gcp-kubernetes",
         "repo_org": "HappyPathway",
-        "repositories": ["terraform-gcp-compute","terraform-gcp-networking","terraform-gcp-storage","terraform-gcp-monitoring","terraform-gcp-security","gcp-deployment"]
+        "repositories": [{"name":"terraform-gcp-compute"},{"name":"terraform-gcp-networking"},{"name":"terraform-gcp-storage"},{"name":"terraform-gcp-monitoring"},{"name":"terraform-gcp-security"},{"name":"gcp-deployment"}]
     }
 
     if args.debug:
