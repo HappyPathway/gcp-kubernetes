@@ -169,3 +169,7 @@ def main():
     # Run initialization
     initializer = ProjectInitializer(**config)
     asyncio.run(initializer.run())
+
+
+if __name__ == "__main__":
+    main()
